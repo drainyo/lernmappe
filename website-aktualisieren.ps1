@@ -24,4 +24,4 @@ foreach ($f in $files) {
 # Ask search engines to stay away (the site is behind Cloudflare Access anyway).
 Set-Content -Path (Join-Path $dst "robots.txt") -Value "User-agent: *`nDisallow: /" -Encoding ascii
 
-Write-Host "website\ aktualisiert: $($files.Count + 1) Dateien. Jetzt in Cloudflare Pages hochladen."
+Write-Host "website\ aktualisiert: $($files.Count + 1) Dateien. Jetzt committen und pushen (git push), Cloudflare veroeffentlicht automatisch."

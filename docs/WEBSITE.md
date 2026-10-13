@@ -1,4 +1,4 @@
-# Lernmappe als private Website (Cloudflare Pages + Access)
+   # Lernmappe als private Website (Cloudflare Pages + Access)
 
 Stand: 2026-10-13. Ziel: Die Lernmappe ist im Internet erreichbar, aber nur für
 freigegebene E-Mail-Adressen (Familie). Kosten: 0 €.
@@ -49,11 +49,19 @@ also gleich anschließend machen.
   Zugang bekommen.
 - Erst dann den Link an die Familie schicken.
 
-## Bei jeder Änderung an den Blättern
-1. PowerShell in diesem Ordner: `.\website-aktualisieren.ps1`
-   (oder Claude sagen: „Website aktualisieren“)
-2. Cloudflare → Workers & Pages → Projekt → **Create deployment** →
-   Ordner `website` hineinziehen → Deploy.
+## Bei jeder Änderung an den Blättern (seit 2026-10-13 über GitHub)
+Claude sagen: „Website aktualisieren“. Oder selbst in PowerShell in diesem Ordner:
+1. `.\website-aktualisieren.ps1`
+2. `git add -A`
+3. `git commit -m "Update worksheets"`
+4. `git push`
+
+Cloudflare baut nach jedem Push automatisch neu (1–2 min).
+
+- Repository: https://github.com/drainyo/lernmappe (privat)
+- Nicht im Repository (`.gitignore`): `PROJEKT.md`, alle Bilder, `Lernmappe PDF/`.
+- Cloudflare-Pages-Projekt `lernmappe-m-l` ist mit GitHub verbunden:
+  Production branch `main`, kein Build-Befehl, Build output directory `website`.
 
 ## Person hinzufügen / entfernen
 Zero Trust → Access → Applications → Lernmappe → Policy `Familie` → E-Mail
