@@ -21,6 +21,12 @@ foreach ($f in $files) {
     Copy-Item (Join-Path $src $f) $dst
 }
 
+# Stamp the start page with the build time so the family sees how current it is.
+$index = Join-Path $dst "index.html"
+$stamp = Get-Date -Format "dd.MM.yyyy HH:mm"
+$html = [IO.File]::ReadAllText($index, [Text.Encoding]::UTF8)
+[IO.File]::WriteAllText($index, $html.Replace("<!--STAND-->", $stamp), (New-Object Text.UTF8Encoding $false))
+
 # Ask search engines to stay away (the site is behind Cloudflare Access anyway).
 Set-Content -Path (Join-Path $dst "robots.txt") -Value "User-agent: *`nDisallow: /" -Encoding ascii
 
