@@ -1,0 +1,13 @@
+# Private: never push to GitHub
+PROJEKT.md
+*.jpg
+*.jpeg
+*.png
+*.heic
+*.webp
+Lernmappe PDF/
+
+# OS / iCloud clutter
+desktop.ini
+Thumbs.db
+.DS_Store
