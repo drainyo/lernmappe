@@ -1,11 +1,15 @@
 # Private: never push to GitHub
 PROJEKT.md
+POSTFACH*.md
 *.jpg
 *.jpeg
 *.png
 *.heic
 *.webp
 Lernmappe PDF/
+
+# Claude Code local settings
+.claude/settings.local.json
 
 # OS / iCloud clutter
 desktop.ini
